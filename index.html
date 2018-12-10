@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selektorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <!-- Navigation -->
+    
+    <nav class="flex-container">
+        <ul>
+            <li class="basic-selectors-nav">
+                <span>Basala Selektorer</span>
+                <div class="drop-down" id="basic-selectors-dropdown">
+                    <a href="#element"><span>element</span></a>
+                    <a href="#klass"><span>class</span></a>
+                    <a href="#id"><span>id</span></a>
+                    <a href="#star"><span>*</span></a>
+                </div>
+            </li>
+            <li class="combinators-nav">
+                <span>Kombinatörer</span>
+                <div class="drop-down" id="combinators-dropdown">
+                    <a href="#combinators"><span>,</span></a>
+                    <a href="#mellanslag"><span>(mellanslag)</span></a>
+                    <a href="#morethan"><span>></span></a>
+                    <a href="#plus"><span>+</span></a>
+                    <a href="#wavy"><span>~</span></a>
+                </div>
+            </li>
+            <li class="pseudo-classes-nav">
+                <span>Pseudo Klasser</span>
+                <div class="drop-down" id="pseudo-classes-dropdown">
+                    <a href="#link"><span>:link</span></a>
+                    <a href="#visited"><span>:visited</span></a>
+                    <a href="#active"><span>:active</span></a>
+                    <a href="#hover"><span>:hover</span></a>
+                    <a href="#focus"><span>:focus</span></a>
+                    <a href="#target"><span>:target</span></a>
+                    <a href="#enabled"><span>:enabled</span></a>
+                    <a href="#disabled"><span>:disabled</span></a>
+                    <a href="#checked"><span>:checked</span></a>
+                    <a href="#lang"><span>:lang()</span></a>
+                    <a href="#indeterminate"><span>:indeterminate</span></a>
+                </div>
+            </li>
+            <li class="pseudo-elements-nav">
+                <span>Pseudo Element</span>
+                <div class="drop-down" id="pseudo-elements-dropdown">
+                    <a href="#before"><span>::before</span></a>
+                    <a href="#after"><span>::after</span></a>
+                    <a href="#first-line"><span>::first-line</span></a>
+                    <a href="#first-letter"><span>::first-letter</span></a>
+                </div>
+            </li>
+            <li class="child-selectors-nav">
+                <span>Barn Selektorer</span>
+                <div class="drop-down" id="child-selectors-dropdown">
+                    <a href="#first-child"><span>:first-child</span></a>
+                    <a href="#last-child"><span>:last-child</span></a>
+                    <a href="#first-of-type"><span>:first-of-type</span></a>
+                    <a href="#last-of-type"><span>:last-of-type</span></a>
+                    <a href="#nth-child"><span>:nth-child(n)</span></a>
+                    <a href="#nth-last-child"><span>:nth-last-child(n)</span></a>
+                    <a href="#nth-type"><span>:nth-type-of(n)</span></a>
+                    <a href="#nth-last-of-type"><span>:nth-last-of-type(n)</span></a>
+                    <a href="#only-child"><span>:only-child</span></a>
+                    <a href="#only-of-type"><span>:only-of-type</span></a>
+                </div>
+            </li>
+            <li class="attribute-selectors-nav">
+                <span>Attribut Selektorer</span>
+                <div class="drop-down" id="attribute-selectors-dropdown">
+                    <a href="#attribute"><span>[attribute]</span></a>
+                    <a href="#attribute-equals"><span>[attribute=value]</span></a>
+                    <a href="#attribute-wavy"><span>[attribute~=value]</span></a>
+                    <a href="#attribute-pole"><span>[attribute|=value]</span></a>
+                    <a href="#attribute-up"><span>[attribute^~=value]</span></a>
+                    <a href="#attribute-dollar"><span>[attribute$=value]</span></a>
+                    <a href="#attribute-star"><span>[attribute*=value]</span></a>
+                </div>
+            </li>
+            <li class="input-selectors-nav">
+                <span>Input Selektorer</span>
+                <div class="drop-down" id="input-selectors-dropdown">
+                    <a href="#optional"><span>:optional</span></a>
+                    <a href="#out-of-range"><span>:out-of-range</span></a>
+                    <a href="#in-range"><span>:in-range</span></a>
+                    <a href="#default"><span>:default</span></a>
+                    <a href="#placeholder"><span>::placeholder</span></a>
+                    <a href="#readonly"><span>:read-only</span></a>
+                    <a href="#readwrite"><span>:read-write</span></a>
+                    <a href="#required"><span>:required</span></a>
+                    <a href="#valid"><span>:valid</span></a>
+                    <a href="#invalid"><span>:invalid</span></a>
+                </div>
+            </li>
+            <li class="other-selectors-nav">
+                <span>Diverse Selektorer</span>
+                <div class="drop-down" id="other-selectors-dropdown">
+                    <a href="#empty"><span>:empty</span></a>
+                    <a href="#root"><span>:root</span></a>
+                    <a href="#not"><span>:not(selector)</span></a>
+                    <a href="#selection"><span>::selection</span></a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="wrapper">
+
+        <!-- INTRO -->
+
+        <div class="intro">
+            <h2 class="intro-heading">Vad är selektorer?</h2>
+            <p class="intro-explanation">
+                Selektorer används i CSS för att välja vilka element man vill ändra och manipulera i sitt HTML-dokument. 
+            </p>
+            <img src="images/selectors.png" alt="Bildföreställning av selektorers funktion">
+        </div>
+
+
+        <!-- BASALA -->
+        <section id="basic-selectors">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Basala Selektorer</h1>
+                <p class="group-explanation">Dessa selektorer är de vanligaste och används oftast.
+                </p>
+            </div>
+
+            <div id="element" class="selector left">
+                <h3 class="example-header">element</h3>
+                <p class="selector-explanation">Väljer alla element som har det angivna element-namnet</p>
+                <div class="selector-example">
+                    p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_element" target="_blank">Resultat</a>
+            </div>
+            <div id="klass" class="selector left">
+                <h3 class="example-header">.class</h3>
+                <p class="selector-explanation">Väljer alla element som har det angivna klass-namnet.</p>
+                <div class="selector-example">
+                    .intro { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_class" target="_blank">Resultat</a>
+            </div>
+            
+            <div id="id" class="selector right">
+                <h3 class="example-header">#id</h3>
+                <p class="selector-explanation">Väljer det element som har det angivna id-namnet.</p>
+                <div class="selector-example">
+                    #firstname { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_id" target="_blank">Resultat</a>
+            </div>
+            
+
+            <div id="star" class="selector right">
+                <h3 class="example-header">*</h3>
+                <p class="selector-explanation">Väljer alla element.</p>
+                <div class="selector-example">
+                    * { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_all" target="_blank">Resultat</a>
+            </div>
+        </section>
+
+
+        <!-- KOMBINATÖRER -->
+
+        <section id="combinators">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Kombinatörer</h1>
+                <p class="group-explanation">Kombinatörer används för att kombinera selektorer med andra selektorer,
+                    för att t.ex. kunna ha fler selektorer som följer samma kodblock.</p>
+            </div>
+
+            <div id="comma" class="selector left">
+                <h3 class="example-header">, - element,element</h3>
+                <p class="selector-explanation">Används för att ange fler selektorer.</p>
+                <div class="selector-example">
+                    h1, p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_element_element" target="_blank">Resultat</a>
+            </div>
+            <div id="mellanslag" class="selector right">
+                <h3 class="example-header">(mellanslag) - element1 element2</h3>
+                <p class="selector-explanation">Väljer alla element2 inuti ett annat element1.</p>
+                <div class="selector-example">
+                    div p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/sel_element_element.asp" target="_blank">Resultat</a>
+            </div>
+            <div id="morethan" class="selector left">
+                <h3 class="example-header">> - element1 > element2</h3>
+                <p class="selector-explanation">Väljer alla element2 som är barn till ett annat element1.</p>
+                <div class="selector-example">
+                    div > p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_element_gt" target="_blank">Resultat</a>
+            </div>
+            <div id="plus" class="selector right">
+                <h3 class="example-header">+ - element1 + element2</h3>
+                <p class="selector-explanation">Väljer alla element2 som är placerade direkt efter ett annat element2.
+                </p>
+                <div class="selector-example">
+                    div + p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_element_pluss" target="_blank">Resultat</a>
+            </div>
+            <div id="wavy" class="selector left">
+                <h3 class="example-header">~ - element1 ~ element2</h3>
+                <p class="selector-explanation">Väljer alla element2 som kommer efter element1.</p>
+                <div class="selector-example">
+                    div + p { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_element_pluss" target="_blank">Resultat</a>
+            </div>
+        </section>
+
+
+        <!-- PSEUDO-KLASSER -->
+        <section id="pseudo-classes">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Pseudo Klasser</h1>
+                <p class="group-explanation">Dessa används när man ska välja någonting som inte har den aktuella
+                    informationen i HTML-koden, när någonting som är i ett speciellt tillstånd ska väljas.
+                </p>
+            </div>
+
+            <div id="link" class="selector left">
+                <h3 class="example-header">:link</h3>
+                <p class="selector-explanation">Väljer en länk som inte har klickats på.</p>
+                <div class="selector-example">
+                    a:link { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_link" target="_blank">Resultat</a>
+            </div>
+            <div id="visited" class="selector right">
+                <h3 class="example-header">:visited</h3>
+                <p class="selector-explanation">Väljer en länk som har besökts.</p>
+                <div class="selector-example">
+                    a:visited { color: pink; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_visited" target="_blank">Resultat</a>
+            </div>
+            <div id="active" class="selector left">
+                <h3 class="example-header">:active</h3>
+                <p class="selector-explanation">Väljer en länk som är aktiv(när man klickar på den).</p>
+                <div class="selector-example">
+                    a:active { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/sel_active.asp" target="_blank">Resultat</a>
+            </div>
+            <div id="hover" class="selector right">
+                <h3 class="example-header">:hover</h3>
+                <p class="selector-explanation">Väljer en länk som muspekaren svävar över.</p>
+                <div class="selector-example">
+                    a:hover { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_hover" target="_blank">Resultat</a>
+            </div>
+            <div id="focus" class="selector left">
+                <h3 class="example-header">:focus</h3>
+                <p class="selector-explanation">Väljer någonting som har fokus på sig, detta kan vara ett input fält
+                    t.ex.</p>
+                <div class="selector-example">
+                    input:focus { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_focus" target="_blank">Resultat</a>
+            </div>
+            <div id="target" class="selector right">
+                <h3 class="example-header">:target</h3>
+                <p class="selector-explanation">Väljer någonting som har blivit länkat till, t.ex. en paragraf som
+                    länkats till via en länk.</p>
+                <div class="selector-example">
+                    :target { border: 2px solid #D4D4D4; background-color: #e5eecc; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target" target="_blank">Resultat</a>
+            </div>
+            <div id="enabled" class="selector left">
+                <h3 class="example-header">:enabled</h3>
+                <p class="selector-explanation">Väljer alla element som är aktiverade. används oftast i forms.</p>
+                <div class="selector-example">
+                    input[type="text"]:enabled { background: #ffff00; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_enabled_disabled" target="_blank">Resultat</a>
+            </div>
+            <div id="disabled" class="selector right">
+                <h3 class="example-header">:disabled</h3>
+                <p class="selector-explanation">Väljer alla element som inte är aktiverade. används också oftast i
+                    forms.</p>
+                <div class="selector-example">
+                    input[type=text]:disabled { background: #dddddd; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_enabled_disabled" target="_blank">Resultat</a>
+            </div>
+            <div id="checked" class="selector left">
+                <h3 class="example-header">:checked</h3>
+                <p class="selector-explanation">Ändrar storlek på alla input-element som är incheckade.</p>
+                <div class="selector-example">
+                    input:checked { height: 50px; width: 50px; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_checked" target="_blank">Resultat</a>
+            </div>
+            <div id="lang" class="selector right">
+                <h3 class="example-header">:lang()</h3>
+                <p class="selector-explanation">Ändrar färg på varje p element med attribut "it"(italienska) </p>
+                <div class="selector-example">
+                    p:lang(it) { background: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_lang" target="_blank">Resultat</a>
+            </div>
+            <div id="indeterminate" class="selector left">
+                <h3 class="example-header">:indeterminate</h3>
+                <p class="selector-explanation">Väljer element som är i ett tillstånd som är obestämd.</p>
+                <div class="selector-example">
+                    input:indeterminate { box-shadow: 0 0 1px 1px red; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_lang" target="_blank">Resultat</a>
+            </div>
+        </section>
+
+        <!-- PSEUDO-ELEMENT -->
+        <section id="pseudo-elements">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Pseudo element</h1>
+                <p class="group-explanation">Dessa används för att style speciella delar av ett element. t.ex. första
+                    bokstaven eller raden i ett element.</p>
+            </div>
+
+            <div id="before" class="selector left">
+                <h3 class="example-header">::before</h3>
+                <p class="selector-explanation">Infogar "Read this: " innan det angivna elementet.</p>
+                <div class="selector-example">
+                    p::before { content: "Read this: "; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_before" target="_blank">Resultat</a>
+            </div>
+
+            <div id="after" class="selector left">
+                <h3 class="example-header">::after</h3>
+                <p class="selector-explanation">Infogar "- Remember this" efter det angivna elementet.</p>
+                <div class="selector-example">
+                    p::after { content: " - Remember this"; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_after" target="_blank">Resultat</a>
+            </div>
+            
+
+            <div id="first-line" class="selector left">
+                <h3 class="example-header">::first-line</h3>
+                <p class="selector-explanation">Ändrar färg på första raden i p elementet. </p>
+                <div class="selector-example">
+                    p::first-line { background-color: yellow; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_firstline" target="_blank">Resultat</a>
+            </div>
+            
+
+            <div id="first-letter" class="selector left">
+                <h3 class="example-header">::first-letter</h3>
+                <p class="selector-explanation">Ändrar storlek och färg på första bokstaven i p elementet</p>
+                <div class="selector-example">
+                    p::first-letter { font-size: 200%; color: #8A2BE2; }
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_firstletter" target="_blank">Resultat</a>
+            </div>
+        </section>
+
+        <!-- CHILD-SELECTORS -->
+
+        <section id="child-selectors">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Barn-selektorer</h1>
+                <p class="group-explanation">
+                    Barn selektorer används nästan uteslutande för att välja och arbeta med element som är barn till en
+                    förvald selektor, därav namnet.
+                </p>
+            </div>
+            <!-- :FIRST-CHILD -->
+            <div id="first-child" class="selector left">
+                <h3 class="example-header">:first-child</h3>
+                <p class="selector-explanation">
+                    :first-child selektorn används för att välja ett element, enbart om det är det första barnet till
+                    ett angivet element.
+                </p>
+                <div class="selector-example">
+                    p:first-child{background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_firstchild"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :LAST-CHILD -->
+            <div id="last-child" class="selector left">
+                <h3 class="example-header">:last-child</h3>
+                <p class="selector-explanation">
+                    :last-child selektorn används för att välja ett element, enbart om det är det sista barnet till ett
+                    angivet element.
+                </p>
+                <div class="selector-example">
+                    p:last-child {background: #ff0000;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_last-child"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :FIRST-OF-TYPE -->
+            <div id="first-of-type" class="selector left">
+                <h3 class="example-header">:first-of-type</h3>
+                <p class="selector-explanation">
+                    :first-of-type selektorn används för att välja det första barn-elementet av sin typ.
+                </p>
+                <div class="selector-example">
+                    p:first-of-type {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_first-of-type"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :LAST-OF-TYPE -->
+            <div id="last-of-type" class="selector left">
+                <h3 class="example-header">:last-of-type</h3>
+                <p class="selector-explanation">
+                    :last-of-type selektorn används för att välja det sista barn-elementet av sin typ.
+                </p>
+                <div class="selector-example">
+                    p:last-of-type {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_last-of-type"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :NTH-CHILD(N) -->
+            <div id="nth-child" class="selector left">
+                <h3 class="example-header">:nth-child(n)</h3>
+                <p class="selector-explanation">
+                    :nth-child(n) selektorn väljer det element som har n(number) plats till dess förälder.
+                </p>
+                <div class="selector-example">
+                    p:nth-child(2) {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_nth-child"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :NTH-LAST-CHILD(N) -->
+            <div id="nth-last-child" class="selector left">
+                <h3 class="example-header">:nth-last-child(n)</h3>
+                <p class="selector-explanation">
+                    :nth-last-child(n) selektorn väljer det element som har n(number) plats till dess förälder, fast i
+                    omvänd ordning.
+                </p>
+                <div class="selector-example">
+                    p:nth-last-child(2) {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_nth-last-child"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :NTH-TYPE-OF(N) -->
+            <div id="nth-type" class="selector left">
+                <h3 class="example-header">:nth-of-type(n)</h3>
+                <p class="selector-explanation">
+                    :nth-of-type(n) selektorn väljer det element som har plats (n) av en speciell typ, till en
+                    förälder.
+                </p>
+                <div class="selector-example">
+                    p:nth-of-type(2) {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_nth-of-type"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :NTH-LAST-OF-TYPE(N) -->
+            <div id="nth-last-of-type" class="selector left">
+                <h3 class="example-header">:nth-last-of-type(n)</h3>
+                <p class="selector-explanation">
+                    :nth-last-of-type(n) selektorn väljer det element som har plats (n) av en speciell typ, till en
+                    förälder. Räknat från det sista barnet.
+                </p>
+                <div class="selector-example">
+                    p:nth-last-of-type(2) {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_nth-last-of-type"
+                    target="_blank">Resultat</a>
+            </div>
+            
+
+            <!-- :ONLY-CHILD -->
+            <div id="only-child" class="selector left">
+                <h3 class="example-header">:only-child</h3>
+                <p class="selector-explanation">
+                    :only-child selektorn väljer varje element som är det enda barnet till dess förälder.
+                </p>
+                <div class="selector-example">
+                    p:only-child {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_only-child"
+                    target="_blank">Resultat</a>
+            </div>
+            
+
+            <!-- :ONLY-OF-TYPE -->
+            <div id="only-of-type" class="selector left">
+                <h3 class="example-header">:only-of-type</h3>
+                <p class="selector-explanation">
+                    :only-of-type selektorn väljer varje element som är det enda barnet av sin typ till en förälder.
+                </p>
+                <div class="selector-example">
+                    p:only-of-type {background: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_only-of-type"
+                    target="_blank">Resultat</a>
+            </div>
+        </section>
+
+        <!-- ATTRIBUTE-SELECTORS -->
+
+        <section id="attribute-selectors">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Attribut-selektorer</h1>
+                <p class="group-explanation">
+                    Attribut-selektorer används uteslutande för att arbeta med element genom deras attribut.
+                </p>
+            </div>
+
+            <!-- [ATTRIBUTE] -->
+            <div id="attribute" class="selector left">
+                <h3 class="example-header">[attribute]</h3>
+                <p class="selector-explanation">
+                    [attribute] selektorn används för att välja ett element med en speciell attribut.
+                </p>
+                <div class="selector-example">
+                    a[target] {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_attribute"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE=VALUE] -->
+            <div id="attribute-equals" class="selector left">
+                <h3 class="example-header">[attribute=value]</h3>
+                <p class="selector-explanation">
+                    [attribute=value] selektorn används för att välja ett element med ett speciellt attribut och värde.
+                </p>
+                <div class="selector-example">
+                    a[target=_blank] {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_attribute_value"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE~=VALUE] -->
+            <div id="attribute-wavy" class="selector left">
+                <h3 class="example-header">[attribute~=value]</h3>
+                <p class="selector-explanation">
+                    [attribute~=value] selektorn används för att välja ett attribut-värde som innehåller ett speciellt
+                    ord.
+                </p>
+                <div class="selector-example">
+                    [title~=flower] { background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_attribute_value_contains"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE|=VALUE] -->
+            <div id="attribute-pole" class="selector left">
+                <h3 class="example-header">[attribute|=value]</h3>
+                <p class="selector-explanation">
+                    [attribute|=value] selektorn används för att välja ett attribut-värde som börjar med ett speciellt
+                    värde.
+                </p>
+                <div class="selector-example">
+                    [lang|=en] {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_attribute_value_lang"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE$=VALUE] -->
+            <div id="attribute-dollar" class="selector left">
+                <h3 class="example-header">[attribute$=value]</h3>
+                <p class="selector-explanation">
+                    [attribute$=value] selektorn väljer alla element som har ett attribut värde som slutar med det
+                    angivna värdet.
+                </p>
+                <div class="selector-example">
+                    div[class$="test"] {background: #ffff00;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_attr_end"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE*=VALUE] -->
+            <div id="attribute-star" class="selector left">
+                <h3 class="example-header">[attribute*=value]</h3>
+                <p class="selector-explanation">
+                    [attribute*=value] selektorn väljer alla element som innehåller det angivna attribut-värdet.
+                </p>
+                <div class="selector-example">
+                    div[class*="test"] {background: #ffff00;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_attr_contain"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- [ATTRIBUTE^=VALUE] -->
+            <div id="attribute-up" class="selector left">
+                <h3 class="example-header">[attribute^=value]</h3>
+                <p class="selector-explanation">
+                    [attribute^=value] selektorn används för att välja ett attribut-värde som börjar med ett värde men
+                    får efterföljas av andra ord direkt. t.ex går det bra att ha div[class^="test"] och sedan ha en div
+                    med en class som heter test2. Detta går inte med [attribute|=value]-selektorn.
+                </p>
+                <div class="selector-example">
+                    div[class^="test"] {background: #ffff00;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_attr_begin"
+                    target="_blank">Resultat</a>
+            </div>
+        </section>
+
+        <!-- INPUT-SELECTORS -->
+
+        <section id="input-selectors">
+
+            <div class="group-intro">
+                <h1 class="group-heading">Input-selektorer</h1>
+                <p class="group-explanation">
+                    Input-selektorer används nästan uteslutande för att manipulera element i former, främst input
+                    elementet.
+                </p>
+            </div>
+
+            <!-- OPTIONAL -->
+            <div id="optional" class="selector left">
+                <h3 class="example-header">:optional</h3>
+                <p class="selector-explanation">
+                    :optional selektorn används för att välja element som inte har attributen required.
+                </p>
+                <div class="selector-example">
+                    input:optional {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_optional"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :OUT-OF-RANGE -->
+            <div id="out-of-range" class="selector left">
+                <h3 class="example-header">:out-of-range</h3>
+                <p class="selector-explanation">
+                    :out-of-range selektorn väljer dem input element med ett värde utanför specificerad
+                    räckvidd(range).
+                </p>
+                <div class="selector-example">
+                    input:out-of-range {border: 2px solid red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_out-of-range"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :IN-RANGE -->
+            <div id="in-range" class="selector left">
+                <h3 class="example-header">:in-range</h3>
+                <p class="selector-explanation">
+                    :in-range selektorn väljer dem input element med ett värde innanför specificerad räckvidd(range).
+                </p>
+                <div class="selector-example">
+                    input:in-range {border: 2px solid yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_in-range"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :DEFAULT -->
+            <div id="default" class="selector left">
+                <h3 class="example-header">:default</h3>
+                <p class="selector-explanation">
+                    :default selektorn väljer det inputfält som är förutbestämt(checked).
+                </p>
+                <div class="selector-example">
+                    input:default {box-shadow: 0 0 1px 1px red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_sel_default"
+                    target="_blank">Resultat</a>
+            </div>
+            <!-- :READ-ONLY -->
+            <div id="readonly" class="selector left">
+                <h3 class="example-header">:read-only</h3>
+                <p class="selector-explanation">
+                    :read-only selektorn väljer dem input element med “readonly” attributen.
+                </p>
+                <div class="selector-example">
+                    input:-moz-read-only {background-color: yellow;} <br> input:read-only {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_read-only"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- :READ-write -->
+            <div id="readwrite" class="selector left">
+                <h3 class="example-header">:read-write</h3>
+                <p class="selector-explanation">
+                    :read-write selektorn väljer dem input element som INTE har “readonly” attributen.
+                </p>
+                <div class="selector-example">
+                    input:-moz-read-write {background-color: yellow;} <br> input:read-write {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_read-write"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- :REQUIRED -->
+            <div id="required" class="selector left">
+                <h3 class="example-header">:required</h3>
+                <p class="selector-explanation">
+                    :required selektorn väljer dem input element med attributen required.
+                </p>
+                <div class="selector-example">
+                    input:required {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_required"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- :VALID -->
+            <div id="valid" class="selector left">
+                <h3 class="example-header">:valid</h3>
+                <p class="selector-explanation">
+                    :valid selektorn väljer alla input element med ett giltigt värde.
+                </p>
+                <div class="selector-example">
+                    input:valid {background-color: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_valid"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- :INVALID -->
+            
+            <div id="invalid" class="selector left">
+                <h3 class="example-header">:invalid</h3>
+                <p class="selector-explanation">
+                    :invalid selektorn väljer alla input element med ett giltigt värde.
+                </p>
+                <div class="selector-example">
+                    input:invalid {border: 2px solid red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_invalid"
+                target="_blank">Resultat</a>
+            </div>
+            
+                
+            <!-- ::PLACEHOLDER -->
+            <div id="placeholder" class="selector left">
+                <h3 class="example-header">::placeholder</h3>
+                <p class="selector-explanation">
+                    ::placeholder selektorn väljer dem input element med placeholder text. Placeholder selektorn behandlas annorlunda beroende på webbläsaren som används. Därför måste man vara vaksam över hur man använder denna selektor.
+                </p>
+                <div class="selector-example">
+                    ::-webkit-input-placeholder {color: red;} <br>::placeholder {color: red;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_placeholder"
+                target="_blank">Resultat</a>
+            </div>
+        </section>
+        
+        <!-- OTHER-SELECTORS -->
+        
+        <section id="other-selectors">
+            
+            <div class="group-intro">
+                <h1 class="group-heading">Diverse-selektorer</h1>
+                <p class="group-explanation">
+                    Dessa diverse selektorer är selektorer som inte riktigt passade in i någon av de andra grupperna.
+                </p>
+            </div>
+            
+            <!-- :EMPTY -->
+            <div id="empty" class="selector left">
+                <h3 class="example-header">:empty</h3>
+                <p class="selector-explanation">
+                    :empty selektorn väljer element som är tomma, element som inte har några barn och inget innehåll.
+                </p>
+                <div class="selector-example">
+                    p:empty {width: 100px;height: 20px;background: #ff0000;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_empty"
+                target="_blank">Resultat</a>
+            </div>
+            <!-- :ROOT -->
+            <div id="root" class="selector left">
+                <h3 class="example-header">:root</h3>
+                <p class="selector-explanation">
+                    :root selektorn väljer root-elementet av ett dokument. t.ex. html elementet i ett HTML-dokument.
+                </p>
+                <div class="selector-example">
+                    :root {background: #ff0000;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_root"
+                target="_blank">Resultat</a>
+            </div>
+            
+            
+            <!-- :NOT(SELECTOR) -->
+            <div id="not" class="selector left">
+                <h3 class="example-header">:not(selector/element)</h3>
+                <p class="selector-explanation">
+                    :not(element/selector) selektorn väljer alla element som inte är av det angivna
+                    elementet/selektorn.
+                </p>
+                <div class="selector-example">
+                    :not(p) {color: #ff0000;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_not"
+                target="_blank">Resultat</a>
+            </div>
+            
+            
+            <!-- :selection -->
+            <div id="selection" class="selector left">
+                <h3 class="example-header">:selection</h3>
+                <p class="selector-explanation">
+                    ::selection selektorn väljer den delen av ett element som har blivit markerat av användaren.
+                </p>
+                <div class="selector-example">
+                    ::-moz-selection {color: red;background: yellow;} <br> ::selection {color: red;background: yellow;}
+                </div>
+                <a class="selector-result" href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_selection"
+                target="_blank">Resultat</a>
+            </div>
+        </section>
+    </div> <!-- WRAPPER END -->
+        
+        <div id="back-to-top">
+            <a href="#top">Top</a>
+        </div>
+        
+    </body>
+    
+    </html>
